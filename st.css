@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ضبط الصفحة لتمتد على كامل الشاشة وتثبيت الخلفية */
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    /* إعدادات صورة الخلفية */
+    background-image: url('images/bkr.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #1a1a1a;
+    
+    direction: rtl;
+    text-align: right;
+}
+
+/* تنسيق الهيدر */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+/* الحاوية الرئيسية */
+main {
+    flex: 1;
+    background-color: rgba(50, 58, 58, 0.85);
+    padding: 25px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 12px;
+    color: white;
+}
+
+/* إخفاء التبويبات غير النشطة وإظهار النشطة */
+.tab-content {
+    display: none !important;
+}
+
+.tab-content.active {
+    display: block !important;
+}
+
+/* ترتيب أزرار القائمة */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: inherit;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-btn.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+p, h1, h2 {
+    text-align: center;
+}
+
+a {
+    color: #4db8ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* صور البروفايل والأقسام العامة */
+.images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.profile-img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.06);
+}
+
+/* الفوتر */
+footer {
+    background-color: rgb(12, 16, 16);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* ========================================================== */
+/* تنسيق قسم عن مملكة سوبا وتداخل الصور مع النصوص             */
+/* ========================================================== */
+
+.about-container {
+    width: 100%;
+    margin-top: 20px;
+    line-height: 1.9;
+    font-size: 18px;
+    text-align: justify; /* توزيع متناسق للنصوص حول الصور */
+}
+
+/* تنسيق الصور الثلاث داخل قسم سوبا */
+.about-img {
+    width: 210px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+/* 1. الصورة الأولى: تطفو على اليمين والنصوص تلتف حولها من اليسار والأسفل */
+.img-top-right {
+    float: right;
+    margin: 5px 0 15px 25px; /* مسافة من اليسار والأسفل لتدخل الكتابة بجانبها */
+}
+
+/* 2. الصورة الثانية: تطفو على اليسار في منتصف النص */
+.img-middle-left {
+    float: center;
+    margin: 10px 25px 15px 0; /* مسافة من اليمين والأعلى لتدخل الكتابة بجانبها */
+}
+
+/* 3. الصورة الثالثة: تطفو على اليمين في الجزء الأخير */
+.img-bottom-left {
+    float: left;
+    margin: 15px 0 15px 25px;
+}
+
+/* فك الـ float لضمان عدم تداخل المحتوى مع العناصر اللاحقة */
+.about-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.about-container p {
+    text-align: right !important;
+    margin-bottom: 15px;
+}
+
+/* وضع جميع صور القسم الثاني (عن مملكة سوبا) في المنتصف */
+#about .about-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#about .profile-img {
+    display: block;
+    margin: 15px auto;
+}
