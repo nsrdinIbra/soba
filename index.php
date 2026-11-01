@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <!-- صندوق تعليقات Disqus -->
+            <!-- صندوق تعليقات Disqus الرئيسي -->
             <div class="disqus-container">
                 <h3>💬 شاركنا رأيك وتعليقك حول سوبا</h3>
                 <div id="disqus_thread"></div>
@@ -120,13 +120,30 @@
 
         <!-- 5. المجتمع وأحدث الأخبار والمقالات -->
         <div id="news" class="tab-content">
-            <h2>المجتمع وأحدث الأخبار</h2>
+            <h2>المجتمع وأحدث الأخبار والمقالات</h2>
 
-            <!-- قسم المقالات والأخبار -->
+            <!-- قسم قائمة المقالات والأخبار -->
             <section id="articles-container">
                 <h3>📰 أحدث المقالات والأخبار</h3>
                 <div id="articles-list">
-                    <!-- سيتم تحميل المقالات هنا بواسطة sob.js -->
+                    <!-- يتم تحميل المقالات ديناميكياً بملف sb.js -->
+                </div>
+            </section>
+
+            <!-- قسم عرض المقال المنفرد مع تعليقات Disqus الخاصة به -->
+            <section id="single-article-view" style="display: none;">
+                <button type="button" class="btn-primary" onclick="backToArticlesList()" style="margin-bottom: 15px;">⬅ العودة لقائمة المقالات</button>
+                
+                <article class="article-card" style="background: #ffffff; color: #333; padding: 25px; border-radius: 8px;">
+                    <h2 id="single-article-title" style="color: #0056b3; text-align: right; margin-bottom: 10px;"></h2>
+                    <div id="single-article-date" class="article-date" style="margin-bottom: 15px;"></div>
+                    <div id="single-article-content" style="line-height: 1.8; font-size: 17px; text-align: right; color: #444;"></div>
+                </article>
+
+                <!-- تعليقات Disqus للمقال المحدد -->
+                <div class="disqus-container" style="margin-top: 25px;">
+                    <h3>💬 التعليقات على هذا المقال</h3>
+                    <div id="disqus_thread_article"></div>
                 </div>
             </section>
 
@@ -151,6 +168,7 @@
         </p>
     </footer>
 
-    <script src="sob.js"></script>
+    <!-- ربط الملف بالاسم الجديد sb.js -->
+    <script src="sb.js"></script>
 </body>
 </html>
