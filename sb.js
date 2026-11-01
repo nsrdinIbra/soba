@@ -2,7 +2,7 @@
 // 1. اسم الموقع الخاص بك في Disqus
 // ==========================================
 // غيّر الكلمة التالية إلى الـ Shortname الخاص بك في Disqus (مثال: soba-kingdom)
-const DISQUS_SHORTNAME = 'YOUR_SOBA_SHORTNAME';
+const DISQUS_SHORTNAME = 'soba-kh';
 
 // ==========================================
 // 2. قائمة المقالات والأخبار
