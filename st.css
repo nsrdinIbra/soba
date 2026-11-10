@@ -1,4 +1,4 @@
-* {
+- {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -56,6 +56,7 @@ nav {
     gap: 10px;
     margin-top: 15px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .nav-btn {
@@ -67,12 +68,70 @@ nav {
     color: #333;
     font-size: 16px;
     transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.nav-btn.active {
+.nav-btn:hover, .nav-btn.active {
     background-color: #0056b3;
     color: white;
     font-weight: bold;
+}
+
+/* ==========================================================
+   تنسيق القائمة المنسدلة (خدمات سوبا)
+   ========================================================== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    width: max-content;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    padding: 6px 0;
+    list-style: none;
+    margin: 4px 0 0 0;
+    z-index: 1000;
+    text-align: right;
+    border: 1px solid #ddd;
+}
+
+.dropdown-menu li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #333 !important;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: normal;
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    background: transparent !important;
+    border: none;
+    width: 100%;
+    text-align: right;
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #0056b3 !important;
+    color: white !important;
+}
+
+/* إظهار القائمة عند وضع المؤشر */
+.dropdown:hover .dropdown-menu {
+    display: block !important;
 }
 
 p, h1, h2 {
