@@ -1,7 +1,6 @@
 // ==========================================
 // 1. اسم الموقع الخاص بك في Disqus
 // ==========================================
-// غيّر الكلمة التالية إلى الـ Shortname الخاص بك في Disqus (مثال: soba-kingdom)
 const DISQUS_SHORTNAME = 'soba-kh';
 
 // ==========================================
@@ -38,13 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+            // استثناء زر القائمة الرئيسية للخدمات لكي يعمل بالتمرير (Hover) ولا يعطل القائمة
+            if (button.classList.contains('dropdown-toggle')) {
+                return;
+            }
+
             const target = button.getAttribute('data-target');
+            if (!target) return;
 
             buttons.forEach(btn => btn.classList.remove('active'));
             tabs.forEach(tab => tab.classList.remove('active'));
 
             button.classList.add('active');
-            document.getElementById(target).classList.add('active');
+            
+            const targetTab = document.getElementById(target);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
         });
     });
 
