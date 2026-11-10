@@ -79,7 +79,7 @@ nav {
 }
 
 /* ==========================================================
-   تنسيق القائمة المنسدلة (خدمات سوبا)
+   تنسيق القائمة المنسدلة (تفتح بالنقر عبر الكلاس show)
    ========================================================== */
 .dropdown {
     position: relative;
@@ -87,7 +87,7 @@ nav {
 }
 
 .dropdown-menu {
-    display: none !important;
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
@@ -102,6 +102,10 @@ nav {
     z-index: 9999;
     text-align: right;
     border: 1px solid #ccc;
+}
+
+.dropdown-menu.show {
+    display: block !important;
 }
 
 .dropdown-menu li {
@@ -129,11 +133,6 @@ nav {
     color: white !important;
 }
 
-/* إظهار القائمة المنسدلة عند التمرير بالمؤشر */
-.dropdown:hover .dropdown-menu {
-    display: block !important;
-}
-
 p, h1, h2 {
     text-align: center;
 }
@@ -147,7 +146,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* نموذج تسجيل بيانات الزائر */
 .auth-container {
     background: #f8f9fa;
     border: 1px solid #e0e0e0;
@@ -184,7 +182,6 @@ a:hover {
     margin-right: 15px;
 }
 
-/* قسم المقالات في صفحة الأخبار */
 #articles-container {
     margin-top: 25px;
 }
@@ -226,7 +223,6 @@ a:hover {
     margin-bottom: 10px;
 }
 
-/* حاوية تعليقات Disqus */
 .disqus-container {
     max-width: 100%;
     margin: 25px auto;
@@ -242,7 +238,6 @@ a:hover {
     margin-bottom: 15px;
 }
 
-/* صور قسم عن مملكة سوبا */
 .about-container {
     width: 100%;
     margin-top: 20px;
