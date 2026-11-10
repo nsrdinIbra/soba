@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach(button => {
         button.addEventListener('click', (e) => {
-            // إذا كان الزر خاص بالقائمة المنسدلة، لا تقم بتغيير التبويب
             if (button.classList.contains('dropdown-toggle')) {
                 return;
             }
@@ -54,22 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetTab.classList.add('active');
             }
 
-            // إغلاق القائمة المنسدلة عند اختيار عنصر فرعي
-            const dropdownMenu = document.querySelector('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.classList.remove('show');
-            }
+            // إغلاق أي قائمة منسدلة مفتوحة عند اختيار عنصر
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
         });
     });
 
-    // إغلاق القائمة المنسدلة عند النقر في أي مكان خارجها
+    // إغلاق جميع القوائم عند النقر خارجها
     window.addEventListener('click', function(e) {
-        const dropdownContainer = document.getElementById('servicesDropdown');
-        if (dropdownContainer && !dropdownContainer.contains(e.target)) {
-            const dropdownMenu = document.querySelector('.dropdown-menu');
-            if (dropdownMenu) {
-                dropdownMenu.classList.remove('show');
-            }
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
         }
     });
 
@@ -79,13 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// 4. دالة فتح وإغلاق القائمة المنسدلة بالنقر
+// 4. دالة عامة لفتح وإغلاق أي قائمة منسدلة
 // ==========================================
-function toggleDropdown(event) {
+function toggleDropdown(event, dropdownId) {
     event.stopPropagation();
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    if (dropdownMenu) {
-        dropdownMenu.classList.toggle('show');
+    
+    // إغلاق أي قوائم أخرى مفتوحة أولاً
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        if (menu.closest('.dropdown').id !== dropdownId) {
+            menu.classList.remove('show');
+        }
+    });
+
+    // فتح أو إغلاق القائمة المستهدفة
+    const dropdown = document.getElementById(dropdownId);
+    if (dropdown) {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) {
+            menu.classList.toggle('show');
+        }
     }
 }
 
