@@ -26,19 +26,27 @@
             <br> Welcome to Soba Kingdom 
         </h1> 
 
-        <!-- أزرار التنقل والقائمة المنسدلة -->
+        <!-- أزرار التنقل -->
         <nav>
             <button class="nav-btn active" data-target="home">الرئيسية والتعليقات</button>
             <button class="nav-btn" data-target="about">عن مملكة سوبا</button>
             <button class="nav-btn" data-target="education">سوبا بشكلها الحديث</button>
             
-            <!-- زر خدمات سوبا المنسدل -->
-            <div class="dropdown" id="servicesDropdown">
-                <button type="button" class="nav-btn dropdown-toggle" onclick="toggleDropdown(event)">خدمات سوبا ▾</button>
+            <!-- زر خدمات سوبا (قائمة منسدلة) -->
+            <div class="dropdown" id="dropdown-services">
+                <button type="button" class="nav-btn dropdown-toggle" onclick="toggleDropdown(event, 'dropdown-services')">خدمات سوبا ▾</button>
                 <ul class="dropdown-menu">
                     <li><button type="button" class="dropdown-item nav-btn" data-target="services-education">التعليم</button></li>
                     <li><button type="button" class="dropdown-item nav-btn" data-target="services-health">الصحة</button></li>
                     <li><button type="button" class="dropdown-item nav-btn" data-target="services-other">خدمات أخرى</button></li>
+                </ul>
+            </div>
+
+            <!-- نموذج لزر إضافي قابل للانسدال مستقبلاً حتى لو كان فارغاً الآن -->
+            <div class="dropdown" id="dropdown-future">
+                <button type="button" class="nav-btn dropdown-toggle" onclick="toggleDropdown(event, 'dropdown-future')">أقسام أخرى ▾</button>
+                <ul class="dropdown-menu">
+                    <li><span style="padding: 10px 15px; display: block; color: #777; font-size: 14px;">قريباً...</span></li>
                 </ul>
             </div>
 
@@ -52,7 +60,6 @@
         <div id="home" class="tab-content active">
             <h2>مرحبا بمرورك في أرض الممالك سوبا</h2>
 
-            <!-- نموذج بيانات الزائر -->
             <div class="auth-container">
                 <div id="login-form">
                     <h3>أدخل بياناتك للمشاركة بالتعليقات</h3>
@@ -66,7 +73,6 @@
                 </div>
             </div>
 
-            <!-- صندوق تعليقات Disqus الرئيسي -->
             <div class="disqus-container">
                 <h3>💬 شاركنا رأيك وتعليقك حول سوبا</h3>
                 <div id="disqus_thread"></div>
@@ -78,30 +84,9 @@
             <h2>عن مملكة سوبا التاريخية</h2>
             
             <div class="about-container">
-                <p>تعد <strong>مملكة سوبا</strong> واحدة من أعرق وأهم المحطات الحضارية والتاريخية في السودان؛ فقد كانت العاصمة التاريخية المجيدة لمملكة "علوة" النوبية العريقة التي امتد نفوذها لقرون طويلة على ضفاف النيل الأزرق.</p>
-                <p>اشتهرت سوبا عبر التاريخ بكونها مركزاً تجارياً وثقافياً نابضاً بالحياة، وملتقى للطرق والقوافل، واحتوت على قصور فخمة ومعالم عمرانية فريدة تميزت باستخدام الطوب الأحمر والنقوش الفنية البديعة.</p>
-
+                <p>تعد <strong>مملكة سوبا</strong> واحدة من أعرق وأهم المحطات الحضارية والتاريخية في السودان...</p>
                 <div class="img-center-box">
                     <img src="images/b4.jpeg" alt="عن مملكة سوبا" class="about-img">
-                </div>
-
-                <p>واليوم، تمثل سوبا جسراً فريداً يربط بين عبق الماضي العريق وتطور الحاضر، حيث تضم المعالم الأثرية الخالدة إلى جانب التجمعات الحديثة والبنى التحتية التي تعكس أصالة المكان وأهميته الاستراتيجية.</p>
-
-                <div class="img-center-box">
-                    <img src="images/b1.png" alt="عن مملكة سوبا" class="about-img">
-                </div>
-
-                <p>مملكة سوبا (أو مملكة علوة) هي إحدى الممالك النوبية المسيحية الثلاث التي قامت في وسط السودان خلال العصور الوسطى.</p>
-
-                <ul>
-                    <li><strong>التأسيس والفترة:</strong> تأسست المملكة في القرن السادس الميلادي واستمر حكمها لما يقارب الألف عام.</li>
-                    <li><strong>العاصمة:</strong> مدينة سوبا (سوبا شرق، جنوب الخرطوم).</li>
-                    <li><strong>الدين والثقافة:</strong> اعتمدت المسيحية وارتبطت بالكنيسة القبطية.</li>
-                    <li><strong>السقوط:</strong> انتهت عام 1504م على يد تحالف عبد الله جماع وعمارة دنقس.</li>
-                </ul>
-
-                <div class="img-center-box">
-                    <img src="images/b2.jpg" alt="عن مملكة سوبا" class="about-img">
                 </div>
             </div>
         </div>
@@ -113,29 +98,24 @@
                 <div class="img-center-box">
                     <img src="images/map.png" alt="خريطة سوبا">
                 </div>
-                
-                <p>تعد سوبا الآن من أعظم المناطق في الخرطوم حيث تنتمي إلى الجزء الجنوبي الشرقي من الخرطوم وتقع منطقة سوبا في محليتين وهما محلية شرق النيل ومحلية سوبا والشهداء...</p>
-                 <h3>أولاً: سوبا شرق</h3>
-                 <p>هي الأصل والحضارة وفيها الآثار والمعالم الحقيقية لسوبا التي كانت عاصمة لمملكة المقرة.</p>
-                <h3>ثانياً: منطقة سوبا غرب</h3>
-                <p>تنتمي إلى محلية سوبا والشهداء وهي الأكبر حجماً والأقوى من حيث الاقتصاد والأقرب موقعاً من منتصف الخرطوم...</p>
+                <p>تعد سوبا الآن من أعظم المناطق في الخرطوم...</p>
             </div>
         </div>
 
-        <!-- 4. أقسام خدمات سوبا الفرعية -->
+        <!-- الخدمات الفرعية -->
         <div id="services-education" class="tab-content">
             <h2>خدمات التعليم في سوبا</h2>
-            <p>تتعدد المؤسسات والمدارس التعليمية في سوبا بشرقها وغربها لمختلف المراحل الدراسية.</p>
+            <p>تتعدد المؤسسات والمدارس التعليمية في سوبا بشرقها وغربها.</p>
         </div>
 
         <div id="services-health" class="tab-content">
             <h2>الخدمات الصحية في سوبا</h2>
-            <p>تضم المنطقة مستشفى سوبا الجامعي والمراكز الصحية المتخصصة لتقديم الرعاية الطبية للمواطنين.</p>
+            <p>تضم المنطقة مستشفى سوبا الجامعي والمراكز الصحية المتخصصة.</p>
         </div>
 
         <div id="services-other" class="tab-content">
             <h2>خدمات أخرى في سوبا</h2>
-            <p>تشمل خدمات المياه، الكهرباء، الاتصالات، الأسواق، والمواصلات العامة.</p>
+            <p>تشمل خدمات المياه، الكهرباء، الاتصالات، الأسواق والمواصلات.</p>
         </div>
 
         <!-- 5. المجتمع وأحدث الأخبار والمقالات -->
@@ -150,10 +130,10 @@
             <section id="single-article-view" style="display: none;">
                 <button type="button" class="btn-primary" onclick="backToArticlesList()" style="margin-bottom: 15px;">⬅ العودة لقائمة المقالات</button>
                 
-                <article class="article-card" style="background: #ffffff; color: #333; padding: 25px; border-radius: 8px;">
-                    <h2 id="single-article-title" style="color: #0056b3; text-align: right; margin-bottom: 10px;"></h2>
-                    <div id="single-article-date" class="article-date" style="margin-bottom: 15px;"></div>
-                    <div id="single-article-content" style="line-height: 1.8; font-size: 17px; text-align: right; color: #444;"></div>
+                <article class="article-card">
+                    <h2 id="single-article-title"></h2>
+                    <div id="single-article-date" class="article-date"></div>
+                    <div id="single-article-content"></div>
                 </article>
 
                 <div class="disqus-container" style="margin-top: 25px;">
@@ -161,16 +141,6 @@
                     <div id="disqus_thread_article"></div>
                 </div>
             </section>
-
-            <h3 style="margin-top: 30px; text-align: center;">🌐 صفحات ومجموعات سوبا على الفيسبوك</h3>
-            <div class="social-links-container">
-                <a href="https://www.facebook.com/groups/764504526536117/" target="_blank" class="social-link"><span class="fb-icon">f</span> رابط صفحة سوبا على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/sobaw" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا الحلة على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/sobashar8" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا شرق على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/996807887969938" target="_blank" class="social-link"><span class="fb-icon">f</span> سوبا اللعوتة أو الواحة على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/1749248661938624" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا الأراضي على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/537378892973931" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا المحطة على الفيسبوك</a><br>
-            </div>
         </div>
 
     </main>
