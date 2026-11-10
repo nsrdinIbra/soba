@@ -26,7 +26,7 @@
             <br> Welcome to Soba Kingdom 
         </h1> 
 
-        <!-- أزرار التنقل والقائمة المنسدلة لخدمات سوبا -->
+        <!-- أزرار التنقل والقائمة المنسدلة المحدثة لخدمات سوبا -->
         <nav>
             <button class="nav-btn active" data-target="home">الرئيسية والتعليقات</button>
             <button class="nav-btn" data-target="about">عن مملكة سوبا</button>
@@ -34,11 +34,11 @@
             
             <!-- زر خدمات سوبا المنسدل -->
             <div class="dropdown">
-                <button class="nav-btn dropdown-toggle" data-target="services">خدمات سوبا ▾</button>
+                <button type="button" class="nav-btn dropdown-toggle">خدمات سوبا ▾</button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item nav-btn" data-target="services-education">التعليم</a></li>
-                    <li><a class="dropdown-item nav-btn" data-target="services-health">الصحة</a></li>
-                    <li><a class="dropdown-item nav-btn" data-target="services-other">خدمات أخرى</a></li>
+                    <li><button type="button" class="dropdown-item nav-btn" data-target="services-education">التعليم</button></li>
+                    <li><button type="button" class="dropdown-item nav-btn" data-target="services-health">الصحة</button></li>
+                    <li><button type="button" class="dropdown-item nav-btn" data-target="services-other">خدمات أخرى</button></li>
                 </ul>
             </div>
 
@@ -122,28 +122,23 @@
             </div>
         </div>
 
-        <!-- 4. الخدمات الرئيسية العامة -->
-        <div id="services" class="tab-content">
-            <h2>خدمات سوبا</h2>
-            <p>تتعدد الخدمات في منطقة سوبا سواء كان في شرقها أو غربها فالمنطقة بها جميع الخدمات الصحية والتعليمية والخدمية والتجارية.</p>
-        </div>
-
-        <!-- 4.1 قسم التعليم -->
+        <!-- 4. أقسام خدمات سوبا الفرعية -->
+        <!-- 4.1 التعليم -->
         <div id="services-education" class="tab-content">
             <h2>خدمات التعليم في سوبا</h2>
-            <p>تضم منطقة سوبا بمختلف أحيائها (شرق وغرب والمحطة) عدداً من المدارس الأساسية والثانوية، إضافة للمؤسسات التعليمية والمراكز التدريبية التي تخدم أبناء المنطقة.</p>
+            <p>تتعدد المؤسسات والمدارس التعليمية في سوبا بشرقها وغربها لمختلف المراحل الدراسية.</p>
         </div>
 
-        <!-- 4.2 قسم الصحة -->
+        <!-- 4.2 الصحة -->
         <div id="services-health" class="tab-content">
             <h2>الخدمات الصحية في سوبا</h2>
-            <p>تشمل المرافق الصحية في سوبا مستشفى سوبا الجامعي، إلى جانب المراكز الصحية والأقسام الطبية والصيدليات التي تقدم الرعاية الصحية للسكان.</p>
+            <p>تضم المنطقة مستشفى سوبا الجامعي والمراكز الصحية المتخصصة لتقديم الرعاية الطبية للمواطنين.</p>
         </div>
 
-        <!-- 4.3 قسم خدمات أخرى -->
+        <!-- 4.3 خدمات أخرى -->
         <div id="services-other" class="tab-content">
             <h2>خدمات أخرى في سوبا</h2>
-            <p>تشمل خدمات المياه، الكهرباء، شبكات الاتصالات، الأسواق التجارية، والمواصلات التي تربط شرق سوبا بغربها وبباقي أجزاء العاصمة الخرطوم.</p>
+            <p>تشمل خدمات المياه، الكهرباء، الاتصالات، الأسواق، والمواصلات العامة.</p>
         </div>
 
         <!-- 5. المجتمع وأحدث الأخبار والمقالات -->
@@ -177,26 +172,4 @@
 
             <h3 style="margin-top: 30px; text-align: center;">🌐 صفحات ومجموعات سوبا على الفيسبوك</h3>
             <div class="social-links-container">
-                <a href="https://www.facebook.com/groups/764504526536117/" target="_blank" class="social-link"><span class="fb-icon">f</span> رابط صفحة سوبا على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/sobaw" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا الحلة على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/sobashar8" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا شرق على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/996807887969938" target="_blank" class="social-link"><span class="fb-icon">f</span> سوبا اللعوتة أو الواحة على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/1749248661938624" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا الأراضي على الفيسبوك</a><br>
-                <a href="https://www.facebook.com/groups/537378892973931" target="_blank" class="social-link"><span class="fb-icon">f</span> صفحة سوبا المحطة على الفيسبوك</a><br>
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <a href="https://nsrdinibra.github.io/nsr_site/" target="_blank">صفحة باش مهندس نصرالدين سوبا</a>
-        <p>
-            Author: Nasreldin Ibrahim Mohamed Blola<br>
-            &copy; Rights reserved حقوق النشر محفوظة
-        </p>
-    </footer>
-
-    <!-- ربط الملف بالاسم الجديد sb.js -->
-    <script src="sb.js"></script>
-</body>
-</html>
+                <a href="https://www.facebook.com/groups/764504526536117/" target="_blank" class="social-
