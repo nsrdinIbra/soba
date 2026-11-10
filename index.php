@@ -26,12 +26,22 @@
             <br> Welcome to Soba Kingdom 
         </h1> 
 
-        <!-- أزرار التنقل -->
+        <!-- أزرار التنقل والقائمة المنسدلة لخدمات سوبا -->
         <nav>
             <button class="nav-btn active" data-target="home">الرئيسية والتعليقات</button>
             <button class="nav-btn" data-target="about">عن مملكة سوبا</button>
             <button class="nav-btn" data-target="education">سوبا بشكلها الحديث</button>
-            <button class="nav-btn" data-target="services">الخدمات والتعليم والصحة</button>
+            
+            <!-- زر خدمات سوبا المنسدل -->
+            <div class="dropdown">
+                <button class="nav-btn dropdown-toggle" data-target="services">خدمات سوبا ▾</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item nav-btn" data-target="services-education">التعليم</a></li>
+                    <li><a class="dropdown-item nav-btn" data-target="services-health">الصحة</a></li>
+                    <li><a class="dropdown-item nav-btn" data-target="services-other">خدمات أخرى</a></li>
+                </ul>
+            </div>
+
             <button class="nav-btn" data-target="news">المجتمع وأحدث الأخبار والمقالات</button>
         </nav>
     </header>
@@ -112,10 +122,28 @@
             </div>
         </div>
 
-        <!-- 4. الخدمات والتعليم والصحة -->
+        <!-- 4. الخدمات الرئيسية العامة -->
         <div id="services" class="tab-content">
-            <h2>الخدمات والتعليم والصحة</h2>
-            <p>تتعدد الخدمات في منطقة سوبا سواء كان في شرقها أو غربها فالمنطقة بها جميع الخدمات الصحية والتعليمية والخدمية...</p>
+            <h2>خدمات سوبا</h2>
+            <p>تتعدد الخدمات في منطقة سوبا سواء كان في شرقها أو غربها فالمنطقة بها جميع الخدمات الصحية والتعليمية والخدمية والتجارية.</p>
+        </div>
+
+        <!-- 4.1 قسم التعليم -->
+        <div id="services-education" class="tab-content">
+            <h2>خدمات التعليم في سوبا</h2>
+            <p>تضم منطقة سوبا بمختلف أحيائها (شرق وغرب والمحطة) عدداً من المدارس الأساسية والثانوية، إضافة للمؤسسات التعليمية والمراكز التدريبية التي تخدم أبناء المنطقة.</p>
+        </div>
+
+        <!-- 4.2 قسم الصحة -->
+        <div id="services-health" class="tab-content">
+            <h2>الخدمات الصحية في سوبا</h2>
+            <p>تشمل المرافق الصحية في سوبا مستشفى سوبا الجامعي، إلى جانب المراكز الصحية والأقسام الطبية والصيدليات التي تقدم الرعاية الصحية للسكان.</p>
+        </div>
+
+        <!-- 4.3 قسم خدمات أخرى -->
+        <div id="services-other" class="tab-content">
+            <h2>خدمات أخرى في سوبا</h2>
+            <p>تشمل خدمات المياه، الكهرباء، شبكات الاتصالات، الأسواق التجارية، والمواصلات التي تربط شرق سوبا بغربها وبباقي أجزاء العاصمة الخرطوم.</p>
         </div>
 
         <!-- 5. المجتمع وأحدث الأخبار والمقالات -->
