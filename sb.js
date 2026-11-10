@@ -31,13 +31,12 @@ const articlesData = [
 // 3. تهيئة التطبيق عند تحميل الصفحة
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // إعداد التبويبات (Tabs)
     const buttons = document.querySelectorAll('.nav-btn');
     const tabs = document.querySelectorAll('.tab-content');
 
     buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // استثناء زر القائمة الرئيسية للخدمات لكي يعمل بالتمرير (Hover) ولا يعطل القائمة
+        button.addEventListener('click', (e) => {
+            // إذا كان الزر خاص بالقائمة المنسدلة، لا تقم بتغيير التبويب
             if (button.classList.contains('dropdown-toggle')) {
                 return;
             }
@@ -54,20 +53,45 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetTab) {
                 targetTab.classList.add('active');
             }
+
+            // إغلاق القائمة المنسدلة عند اختيار عنصر فرعي
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+            }
         });
     });
 
-    // تحميل قائمة المقالات والتحقق من بيانات الزائر
+    // إغلاق القائمة المنسدلة عند النقر في أي مكان خارجها
+    window.addEventListener('click', function(e) {
+        const dropdownContainer = document.getElementById('servicesDropdown');
+        if (dropdownContainer && !dropdownContainer.contains(e.target)) {
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+            }
+        }
+    });
+
     loadArticlesList();
     checkSavedUser();
     loadMainDisqus();
 });
 
 // ==========================================
-// 4. عرض المقالات والتعليقات المخصصة
+// 4. دالة فتح وإغلاق القائمة المنسدلة بالنقر
 // ==========================================
+function toggleDropdown(event) {
+    event.stopPropagation();
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    if (dropdownMenu) {
+        dropdownMenu.classList.toggle('show');
+    }
+}
 
-// عرض قائمة المقالات الكلية
+// ==========================================
+// 5. عرض المقالات والتعليقات المخصصة
+// ==========================================
 function loadArticlesList() {
     const articlesList = document.getElementById('articles-list');
     if (!articlesList) return;
@@ -89,7 +113,6 @@ function loadArticlesList() {
     });
 }
 
-// فتح مقال منفرد وعرض تعليقات Disqus الخاصة به
 function openSingleArticle(articleId) {
     const article = articlesData.find(a => a.id === articleId);
     if (!article) return;
@@ -101,21 +124,17 @@ function openSingleArticle(articleId) {
     document.getElementById('single-article-date').textContent = `📅 ${article.date}`;
     document.getElementById('single-article-content').textContent = article.content;
 
-    // تحميل أو تحديث Disqus للمقال المختار
     loadArticleDisqus(article.id, article.title);
 }
 
-// العودة للقائمة العامة للمقالات
 function backToArticlesList() {
     document.getElementById('single-article-view').style.display = 'none';
     document.getElementById('articles-container').style.display = 'block';
 }
 
 // ==========================================
-// 5. ربط Disqus
+// 6. ربط Disqus
 // ==========================================
-
-// Disqus للصفحة الرئيسية
 function loadMainDisqus() {
     if (document.getElementById('disqus_thread')) {
         var d = document, s = d.createElement('script');
@@ -125,7 +144,6 @@ function loadMainDisqus() {
     }
 }
 
-// Disqus للمقال المنفرد
 function loadArticleDisqus(articleId, articleTitle) {
     const articleUrl = window.location.href.split('#')[0] + '#!' + articleId;
 
@@ -152,7 +170,7 @@ function loadArticleDisqus(articleId, articleTitle) {
 }
 
 // ==========================================
-// 6. حفظ بيانات الزائر (LocalStorage)
+// 7. حفظ بيانات الزائر (LocalStorage)
 // ==========================================
 function loginUser() {
     const name = document.getElementById('user-name').value.trim();
